@@ -6,14 +6,6 @@ trigger:
 - master
 
 resources:
-- task: KubernetesManifest@0
-  inputs:
-    action: 'deploy'
-    manifests: |
-      $(Pipeline.Workspace)/manifests/deployment.yml
-      $(Pipeline.Workspace)/manifests/service.yml
-    containers: '$(containerRegistry)/$(imageRepository):$(tag)'
-    imagePullSecrets: '$(imagePullSecret)'
 - repo: self
 
 variables:
