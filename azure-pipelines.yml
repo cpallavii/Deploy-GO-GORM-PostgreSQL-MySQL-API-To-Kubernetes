@@ -6,6 +6,14 @@ trigger:
 - master
 
 resources:
+- task: KubernetesManifest@0
+  inputs:
+    action: 'deploy'
+    manifests: |
+      $(Pipeline.Workspace)/manifests/deployment.yml
+      $(Pipeline.Workspace)/manifests/service.yml
+    containers: '$(containerRegistry)/$(imageRepository):$(tag)'
+    imagePullSecrets: '$(imagePullSecret)'
 - repo: self
 
 variables:
@@ -15,7 +23,7 @@ variables:
   imageRepository: 'cpallaviideploygogormpostgresqlmysqlapitokubernete'
   containerRegistry: 'newacrreg123.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: '54'
   imagePullSecret: 'newacrreg123732e-auth'
 
   # Agent VM image name
