@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: cpallaviideploygogormpostgresqlmysqlapitokubernete 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cpallaviideploygogormpostgresqlmysqlapitokubernete
+  template:
+    metadata:
+      labels:
+        app: cpallaviideploygogormpostgresqlmysqlapitokubernete 
+    spec:
+      containers:
+        - name: cpallaviideploygogormpostgresqlmysqlapitokubernete 
+          image: newacrreg123.azurecr.io/cpallaviideploygogormpostgresqlmysqlapitokubernete
+          ports:
+          - containerPort: 8080
